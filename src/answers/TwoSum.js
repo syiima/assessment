@@ -10,7 +10,6 @@ const TwoSum = () => {
 
     const handleCalculate = () => {
         let numbers = inputArray.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num));
-        console.log('numbers', numbers);
         
         let sorted = [...numbers].sort((a, b) => a - b);
 
@@ -30,8 +29,6 @@ const TwoSum = () => {
             setSortedArray(null);
             return;
         }
-
-        console.log('heell');
         
         setSortedArray(sorted);
         setResult(output);
