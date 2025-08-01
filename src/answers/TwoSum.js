@@ -1,29 +1,39 @@
 import React, { useState } from 'react';
-import { SafeAreaView, TextInput, Pressable, Text, StyleSheet, Alert } from 'react-native';
+import { SafeAreaView, TextInput, Pressable, Text, StyleSheet, View } from 'react-native';
+import { showAlert } from '../components/alertBox';
 
 const TwoSum = () => {
     const [inputArray, setInputArray] = useState('');
     const [target, setTarget] = useState('');
     const [result, setResult] = useState(null);
+    const [sortedArray, setSortedArray] = useState(null);
 
     const handleCalculate = () => {
         let numbers = inputArray.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num));
+        console.log('numbers', numbers);
+        
+        let sorted = [...numbers].sort((a, b) => a - b);
 
         let tgt = parseInt(target);
 
-        if (numbers.length < 2 || isNaN(tgt)) {
-            Alert.alert('Please add more numbers')
+        if (sorted.length < 2 || isNaN(tgt)) {
+            showAlert('Please add more numbers')
             setResult(null);
+            setSortedArray(null);
             return;
         }
 
-        let output = twoSum(numbers, tgt);
+        let output = twoSum(sorted, tgt);
         if (output.length === 0) {
-            Alert.alert('No valid pair found for the given target.');
+            showAlert('No valid pair found for the given target.');
             setResult(null);
+            setSortedArray(null);
             return;
         }
 
+        console.log('heell');
+        
+        setSortedArray(sorted);
         setResult(output);
     };
 
@@ -34,17 +44,16 @@ const TwoSum = () => {
         while (left < right) {
             const sum = numbers[left] + numbers[right];
             if (sum === target) {
-                return [left + 1, right + 1];
-            }
-            else if (sum < target) {
+                return [left + 1, right + 1]; 
+            } else if (sum < target) {
                 left++;
-            }
-            else {
+            } else {
                 right--;
             }
         }
 
         return [];
+
     };
 
    
@@ -56,7 +65,7 @@ const TwoSum = () => {
         <SafeAreaView style={styles.container}>
              <Text style={styles.title}>Two Sums</Text>
 
-            <Text>Enter sorted numbers (comma separated):</Text>
+            <Text>Enter numbers (comma separated):</Text>
             <TextInput
                 style={styles.input}
                 value={inputArray}
@@ -79,7 +88,11 @@ const TwoSum = () => {
             </Pressable>
 
             {result && (
-                <Text style={styles.result}>Result: [{result[0]}, {result[1]}]</Text>
+                <View>
+                    <Text style={styles.result}>Sorted Array: [{sortedArray.join(', ')}] </Text>
+                    <Text style={styles.result}>Result: [{result[0]}, {result[1]}]</Text>
+
+                </View>
             )}
 
         </SafeAreaView>
@@ -87,11 +100,11 @@ const TwoSum = () => {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, paddingHorizontal: 20},
-  title: { fontWeight: 'bold', marginBottom: 20},
+  container: { flex: 1, paddingHorizontal: 20, ...(Platform.OS === 'web' && {margin: 'auto', width: '100%', maxWidth:500})},
+  title: { fontWeight: 'bold', marginBottom: 20, fontSize: 30, alignItems:'center'},
   button: { padding: 10, backgroundColor: 'gray', marginBottom: 20, marginTop: 20, borderRadius: 5, alignItems:'center'},
   input: { marginTop: 10, borderWidth: 1, padding: 10, marginVertical: 10,  borderRadius: 5 },
-  result: { fontWeight: 'bold'},
+  result: { fontWeight: 'bold', fontSize: 15},
 });
 
 export default TwoSum

@@ -77,8 +77,8 @@ const Navbar = () => {
 const styles = StyleSheet.create({
     mainContainer: {flex:1},
     //web
-    navbar: {flex:1, justifyContent: 'space-between', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', padding:20,  paddingBottom: 10, borderBottomColor: 'gray', borderBottomWidth: 0.8},
-    searchInput: {padding: 7, borderRadius:5, borderWidth: 0.7 },
+    navbar: {flex:1, justifyContent: 'space-between', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', paddingHorizontal:20,  paddingBottom: 10, borderBottomColor: 'gray', borderBottomWidth: 0.8, backgroundColor:'#d5a9c5'},
+    searchInput: {padding: 7, borderRadius:5, borderWidth: 0.7 , backgroundColor:'#ccc'},
     navRef: {flexDirection: 'row', gap: 16, alignItems:'center'},
     navItems: {flexDirection: 'row', flexWrap: 'wrap', gap: 16 },
     navLink: { textDecorationLine: 'none',  color: 'black'},

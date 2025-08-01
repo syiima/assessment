@@ -1,3 +1,10 @@
 {
-  "extends": "@react-native/typescript-config"
+  "compilerOptions": {
+    "moduleSuffixes": [
+      ".web",
+      ".native",
+      ""
+    ]
+  },
+  "extends": "expo/tsconfig.base"
 }
