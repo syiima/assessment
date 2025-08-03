@@ -1,19 +1,19 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import SafeAreaViewContainer from '../../components/ui/SafeAreaViewContainer';
+import { Platform, View } from 'react-native';
+import { styles } from './styles';
 
 import WebNavbar from './index.web';
 import MobileNavbar from './index.mobile';
 
 const Navbar = () => {
     return(
-        <SafeAreaViewContainer>
+        <View style={styles.mainContainer}>
             {Platform.OS === 'web' ? (
                 <WebNavbar/>
             ) : (
                 <MobileNavbar/>
             )}
-        </SafeAreaViewContainer>
+        </View>
     )
 }
 

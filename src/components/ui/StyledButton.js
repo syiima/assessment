@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Pressable, Text, StyleSheet } from "react-native";
 import { colors } from "../../configs/colors";
 
@@ -14,25 +14,34 @@ const StyledButton = ({
     type = ButtonFormat.Default,
     color,
     textColor,
+    style,
+    styleText,
+    hoverable = true,
     ...buttonProps
 }) => {
+    const [isHovered, setIsHovered] = useState(false);
     const buttonStyle = StyleSheet.flatten([
         styles[type],
         color ? { backgroundColor: color } : {},
-        buttonProps.style,
+        style,
+        hoverable && isHovered ? styles.buttonHover : {}, 
     ]);
 
      const textStyle = StyleSheet.flatten([
         styles[`${type}Text`],
         textColor ? { color: textColor } : {},
-        textStyle,
+        styleText,
     ]);
 
     return(
         <Pressable 
-            style={buttonStyle} 
+            style={[
+              buttonStyle, 
+            ]} 
             {...buttonProps} 
             onPress={actionHandler}
+            onHoverIn={() => setIsHovered(prev => !prev)}
+            onHoverOut={() => setIsHovered(prev => !prev)}
         >
             <Text style={textStyle}>{children}</Text>
         </Pressable>
@@ -69,7 +78,10 @@ const styles = StyleSheet.create({
   },
   outlineText: {
     color: colors.gray,
-  }
+  },
+  buttonHover: {
+    backgroundColor: colors.pink,
+  },
 });
 
 

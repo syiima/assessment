@@ -3,7 +3,12 @@ import { colors } from "../../configs/colors";
 
 export const styles = StyleSheet.create({
     mainContainer: { 
-        flex: 1
+        flex: 1,
+        backgroundColor: colors.white,
+        // paddingHorizontal: 20,
+        ...(Platform.OS === "web" && {
+            width: "100%",
+        }),
     },
     //web
     navbar: {
@@ -22,7 +27,7 @@ export const styles = StyleSheet.create({
         padding: 7,
         borderRadius: 5,
         borderWidth: 0.7,
-        backgroundColor: colors.gray,
+        backgroundColor: colors.white,
     },
     navRef: { 
         flexDirection: "row", 
@@ -68,6 +73,7 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: colors.gray,
         zIndex: 1,
+        elevation: 1,
     },
 
     aeonTitle: {

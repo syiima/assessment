@@ -27,7 +27,7 @@ const StyledInput = ({
             value={value}
             onChangeText={setValue}
             placeholder={placeholder}
-            placeholderTextColor={placeholderTextColor || styles[`${type}PlaceholderColor`]?.color || '#888'}
+            placeholderTextColor={colors.gray}
             keyboardType={inputType}
             {...inputProps}
             />
@@ -48,8 +48,7 @@ const styles = StyleSheet.create({
         padding: 10, 
         marginVertical: 10,
         color: colors.black,  
-    }   
-
-})
+    },   
+});
 
 export { StyledInput, InputFormat };

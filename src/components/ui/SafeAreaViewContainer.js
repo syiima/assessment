@@ -18,13 +18,11 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         paddingHorizontal: 20,
         ...(Platform.OS === "web" && {
-            margin: "auto",
             width: "100%",
-            maxWidth: 500,
         }),
     },
     content : {
-        paddingVertical: 20,
+        paddingHorizontal: 20,
     }
 });
 

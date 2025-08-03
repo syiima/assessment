@@ -2,7 +2,7 @@ import { StyleSheet, Platform } from "react-native";
 import { colors } from "../../configs/colors";
 
 export const styles = StyleSheet.create({
-  container: {
+  content: {
     flex: 1,
     paddingHorizontal: 20,
     ...(Platform.OS === "web" && {

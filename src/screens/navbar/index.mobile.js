@@ -8,7 +8,7 @@ const MobileNavbar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
 
     return(
-        <View style={styles.container}>
+        <View>
             <View style={styles.mobileNav}>
                 <Pressable onPress={() => setToggleMenu(prev => !prev)}>
                     <StyledText 

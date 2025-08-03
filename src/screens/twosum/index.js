@@ -54,49 +54,51 @@ const TwoSum = () => {
 
     return(
         <SafeAreaViewContainer>
-            <StyledText type={TextFormat.Title}>
-                Two Sums
-            </StyledText>
+            <View style={{paddingVertical: 10 }}>
+                <StyledText type={TextFormat.Title}>
+                   Find two sum indices by checking array and target value:
+                </StyledText>
 
-            <StyledText type={TextFormat.Label}>
-                Enter numbers (comma separated):
-            </StyledText>
-            <StyledInput
-                value={inputArray}
-                setValue={setInputArray}
-                placeholder="eg: 1,2,3,4"
-                keyboardType="numeric"
-            />
+                <StyledText type={TextFormat.Label}>
+                    Enter numbers (comma separated):
+                </StyledText>
+                <StyledInput
+                    value={inputArray}
+                    setValue={setInputArray}
+                    placeholder="eg: 1,2,3,4"
+                    keyboardType="numeric"
+                />
 
-            <StyledText type={TextFormat.Label}>
-                Enter target:
-            </StyledText>
-            <StyledInput
-                value={target}
-                setValue={setTarget}
-                placeholder="eg: 5"
-                keyboardType="numeric"
-            />
+                <StyledText type={TextFormat.Label}>
+                    Enter target:
+                </StyledText>
+                <StyledInput
+                    value={target}
+                    setValue={setTarget}
+                    placeholder="eg: 5"
+                    keyboardType="numeric"
+                />
 
-            <StyledButton 
-                type={ButtonFormat.Default} 
-                actionHandler={handleCalculate}
-            >
-                Find Two Sum
-            </StyledButton>
+                <StyledButton 
+                    type={ButtonFormat.Default} 
+                    actionHandler={handleCalculate}
+                    style={{ marginVertical: 15}}
+                >
+                    Find two sum indices
+                </StyledButton>
 
 
-            {result && (
-                <View>
-                    <StyledText type={TextFormat.Label}>
-                        Sorted Array: [{sortedArray.join(', ')}] 
-                    </StyledText>
-                    <StyledText type={TextFormat.Label}>
-                        Result: [{result[0]}, {result[1]}]
-                    </StyledText>
-                </View>
-            )}
-
+                {result && (
+                    <View>
+                        <StyledText type={TextFormat.Label}>
+                            Sorted Array: [{sortedArray.join(', ')}] 
+                        </StyledText>
+                        <StyledText type={TextFormat.Label}>
+                            Result: [{result[0]}, {result[1]}]
+                        </StyledText>
+                    </View>
+                )}
+            </View>
         </SafeAreaViewContainer>
     )
 }

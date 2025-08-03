@@ -3,6 +3,6 @@
  */
 
 import {registerRootComponent} from 'expo';
-import App from './App';
+import MainApp from './src';
 
-registerRootComponent(App);
+registerRootComponent(MainApp);

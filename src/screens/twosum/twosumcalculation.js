@@ -3,7 +3,7 @@ export const filterInputArray = (inputArray) => {
         .split(',')
         .map(num => parseInt(num.trim()))
         .filter(num => !isNaN(num));        
-}
+};
 
 export const twoSumFinder = (numbers, target) => {
     let left = 0;
@@ -19,7 +19,5 @@ export const twoSumFinder = (numbers, target) => {
             right--;
         }
     }
-
     return [];
-
 };

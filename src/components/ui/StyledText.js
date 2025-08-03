@@ -4,7 +4,8 @@ import { Text, StyleSheet } from "react-native";
 const TextFormat = {
     Title: 20, 
     Label: 15, 
-    Default: 12
+    Default: 12,
+    Header: 30,
 };
  
 const StyledText = ({
@@ -23,6 +24,7 @@ const StyledText = ({
         <Text 
             style={style} 
             {...textProps}
+            allowFontScaling={true}
         >
             {children}
         </Text>
@@ -41,6 +43,10 @@ const styles = StyleSheet.create({
     },
     [TextFormat.Default]: {
         fontSize: TextFormat.Default,
+    },
+    [TextFormat.Header]: {
+        fontSize: TextFormat.Header,
+        fontWeight:'700',
     },
 });
 
