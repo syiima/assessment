@@ -8,69 +8,62 @@ import { View } from 'react-native';
 import { styles } from './styles';
 
 const Calculator = () => {
-    const [firstNum, setFirstNum] = useState('');
-    const [secondNum, setSecondNum] = useState('');
-    const [total, setTotal] = useState(null);
+  const [firstNum, setFirstNum] = useState('');
+  const [secondNum, setSecondNum] = useState('');
+  const [total, setTotal] = useState(null);
 
-    const handleAdd = () => {
-        if(firstNum !== '' && secondNum !== ''){
-            let subtotal = Number(firstNum) + Number(secondNum)
-            if(isNaN(subtotal)){
-                AlertBox('Please enter only numbers')
-            } else {
-                setTotal(subtotal)
-            }
-            
-        } else {
-            AlertBox('Please enter both numbers')
-        }
+  const handleAdd = () => {
+    if (firstNum !== '' && secondNum !== '') {
+      let subtotal = Number(firstNum) + Number(secondNum);
+      if (isNaN(subtotal)) {
+        AlertBox('Please enter only numbers');
+      } else {
+        setTotal(subtotal);
+      }
+    } else {
+      AlertBox('Please enter both numbers');
     }
-    
-    return(
-        <SafeAreaViewContainer>
-            <View style={{paddingVertical: 10 }}>
-                <StyledText type={TextFormat.Title}>
-                    Get the total sum of numbers input: 
-                </StyledText>
+  };
 
-                <StyledText type={TextFormat.Label}>
-                    First Number
-                </StyledText>
+  return (
+    <SafeAreaViewContainer>
+      <View style={{ paddingVertical: 10 }}>
+        <StyledText type={TextFormat.Title}>
+          Get the total sum of numbers input:
+        </StyledText>
 
-                <StyledInput
-                    value={firstNum}
-                    setValue={setFirstNum}
-                    placeholder="First Number"
-                    keyboardType="numeric"
-                />
+        <StyledText type={TextFormat.Label}>First Number</StyledText>
 
-                <StyledText type={TextFormat.Label}>
-                    Second Number
-                </StyledText>
+        <StyledInput
+          value={firstNum}
+          setValue={setFirstNum}
+          placeholder="First Number"
+          keyboardType="numeric"
+        />
 
-                <StyledInput
-                    value={secondNum}
-                    setValue={setSecondNum}
-                    placeholder="Second Number"
-                    keyboardType="numeric"
-                />
+        <StyledText type={TextFormat.Label}>Second Number</StyledText>
 
-                <StyledButton 
-                    type={ButtonFormat.Default} 
-                    actionHandler={handleAdd}
-                    style={{ marginVertical: 15 }}
-                >
-                    Calculate total
-                </StyledButton>
+        <StyledInput
+          value={secondNum}
+          setValue={setSecondNum}
+          placeholder="Second Number"
+          keyboardType="numeric"
+        />
 
-                {total !== null && 
-                    <StyledText type={TextFormat.Label}>
-                        Total: {total}
-                    </StyledText>
-                }
-            </View>
-        </SafeAreaViewContainer>
-    )
-}
+        <StyledButton
+          type={ButtonFormat.Default}
+          actionHandler={handleAdd}
+          style={{ marginVertical: 15 }}
+        >
+          Calculate total
+        </StyledButton>
+
+        {total !== null && (
+          <StyledText type={TextFormat.Label}>Total: {total}</StyledText>
+        )}
+      </View>
+    </SafeAreaViewContainer>
+  );
+};
 
 export default Calculator;
