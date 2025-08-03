@@ -1,15 +1,15 @@
 # Assessment - React Native
 
-Simple and basic app created to display solution for problems to be solved. Created using React Native to be run on iOS and Android, as well as on web. There are 3 main functions in the app: 
+Simple and basic app created to display solution for a few questions/problems to be solved. Created using React Native to be run on iOS and Android, as well as on web. There are 3 main functions/solutions in the app: 
 
 | Function | Summary |
 | ------ | ------ |
-| Calculator | Used to calculate two sums of number being inputted |
-| Navbar | Used to display navigation bar. Has different style or format for web and mobile platform <br/> Mobile - Has a hamburger menu that can be clicked to toggle open /close menu bar. <br/> Web - Display links available with search function |
+| Calculator | Used to calculate sum of two numbers being inputted |
+| Navbar | Used to display navigation bar. Has different style or format for web and mobile platform <br/><br/> Mobile - Has a hamburger menu that can be clicked to toggle open /close menu bar. <br/> Web - Display links available with search function |
 | Two Sum | Used to input array, and sum of target. It will then sort the array by non-decreasing order, find indices which will return sum that meets the target input |
 
 
-## How To
+## How To Run
 
 ### 1. Clone repository
 
@@ -17,8 +17,12 @@ Project can be cloned from Github to your folder. Click on `Code` to choose pref
 
 ### 2. Install Dependencies
 
-Make sure you have environment setup for React Native. Yarn is recommended for installation
-From root project, run command below to start installation:
+In order to install dependencies from package, Yarn is recommended for installation. SInce the default installer is using npm, install yarn by running command: 
+```
+npm install --global yarn
+```
+
+From root project, run command below to start installation for dependecies:
 ```
 yarn install
 ```
@@ -41,7 +45,7 @@ Notes:
     - Please ensure that JAVA_HOME, ANDROID_HOME has already be configured.
     - Please make sure emulator is already opened before running
 - For iOS:
-    - MacOS is required as Xcode need to be installed
+    - MacOS is required as Xcode needs to be installed to build and open Simulator
 
 
 ## Folder Structure
@@ -57,9 +61,9 @@ Notes:
 ├── app.json
 └── src
     ├── components
-    ├── navigators
     ├── screens
-    └── configs
+    ├── configs
+    └── index.js
 
 ```
 In screens, all the solutions file can be found. Each solution has a separate `styles.js` and `index.js` for styles and logic/UI respectively. 
@@ -102,16 +106,8 @@ const handleAdd = () => {
 
 ### 2. Navbar
 For navbar, different files can be found depending if it is running on web or mobile platform. For both platforms, `NavigationTitle` which consists of name and route for the title will be mapped and displayed. 
-```
-<View style={styles.menu}>
-    {NavigationTitle.map((item, ind) => {
-        return(
-            <StyledText type={TextFormat.Label} key={ind} style={{paddingVertical: 5,}}>{item.name}</StyledText>
-        )
-    })}
-</View>
-```
 Different formatting style can also be seen on both platforms.  
+
   - iOS & Android display format: `NavigationTitle` will be displayed in a menu box, which can be toggled by clicking on hamburger menu
 ```
 <View style={styles.rightSide}>
