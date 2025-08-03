@@ -1,9 +1,11 @@
 import { Platform, Alert } from 'react-native';
 
-export const showAlert = (message) => {
+const AlertBox = (message) => {
   if (Platform.OS === 'web') {
     window.alert(`${message}`);
   } else {
     Alert.alert(message);
   }
 };
+
+export default AlertBox;
